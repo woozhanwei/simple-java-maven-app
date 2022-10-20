@@ -35,5 +35,24 @@ pipeline{
        
             }
         }
+
+        stage("Deploy"){
+            steps{
+                echo "====++++executing Deploy++++===="
+                sh './jenkins/scripts/deliver.sh'
+            }
+            post{
+                always{
+                    echo "====++++always++++===="
+                }
+                success{
+                    echo "====++++Deploy executed successfully++++===="
+                }
+                failure{
+                    echo "====++++Deploy execution failed++++===="
+                }
+       
+            }
+        }
     }
 }
