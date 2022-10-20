@@ -12,7 +12,7 @@ pipeline{
     stages{
         stage("Build"){
             steps{
-                echo "========executing Build Stage========"
+                echo "========executing Build Stage= ======="
                 sh 'mvn -B -DskipTests clean package'
             }
         }
