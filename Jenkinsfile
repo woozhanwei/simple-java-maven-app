@@ -40,8 +40,8 @@ pipeline{
             steps{
                 echo "====++++executing A++++===="
                 withSonarQubeEnv('SonarQube') {
-                sh 'mvn sonar:sonar'
-            }
+                    sh 'mvn sonar:sonar'
+                }
             }
             post{
                 always{
@@ -59,9 +59,8 @@ pipeline{
 
         stage("Deploy"){
             steps{
-                with SonarQubeEnv('SonarQube') {
-
-                }
+                echo "====++++executing Deploy++++===="
+                sh './jenkins/scripts/deliver.sh'
             }
             post{
                 always{
